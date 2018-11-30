@@ -5,9 +5,9 @@ header-img: img/page-bg-keyboard.png #显示在首页的背景图片
 email: fe@fedemo.top
 description: "现在还没有介绍。" #网站介绍
 keyword: "Lee的博客,博客,Blog,JAVA" #关键词
-url: "https://liberdass.github.io/masterLee.github.io/"          # your host, for absolute URL https://fedemo.top
+url: "https://liberdass.github.io/LeeBlog.github.io/"          # your host, for absolute URL https://fedemo.top
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "darknight.github.io" # you code repository
+github_repo: "" # you code repository
 author: Fe
 
 # 是否托管在Coding_Pages
@@ -86,10 +86,10 @@ gitalk:
 
 # Featured Tags
 featured-tags: true                     # 是否使用首页标签
-featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页
+featured-condition-size: 0              # 相同标签数量大于这个数，才会出现在首页
 
 #search plugins
-search: true                            # 是否使用搜索插件
+#search: true                            # 是否使用搜索插件
 
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
