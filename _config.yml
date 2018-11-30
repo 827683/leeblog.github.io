@@ -6,7 +6,7 @@ email: fe@fedemo.top
 description: "现在还没有介绍。" #网站介绍
 keyword: "Lee的博客,博客,Blog,JAVA" #关键词
 url: "https://liberdass.github.io/LeeBlog.github.io/"          # your host, for absolute URL https://fedemo.top
-baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: "_posts"      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "" # you code repository
 author: Fe
 
