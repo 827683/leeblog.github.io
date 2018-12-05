@@ -1,42 +1,545 @@
----
-layout: page
-description: "Surrender! Or more combat-worthy than enemy!"
-head_padding: 55px
----
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
-            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-        <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
-    </p>
-</div>
-<hr>
-{% endfor %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="google-site-verification" content="" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="现在还没有介绍。">
+    
+        <meta name="keywords" content="Lee的博客,博客,Blog,JAVA">
+    
+    <meta name="theme-color" content="#000000">
+    <meta name="toTop" content="true">
+    <title>About - Lee的博客 | Lee Blog</title>
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
+    <!-- Web App Manifest -->
+    <!-- <link rel="manifest" href="/pwa/manifest.json"> -->
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Safari Webpage Icon    by-BY -->
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/about/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+
+    <link rel="stylesheet" type="text/css" href="/css/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="/css/fe.css">
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js "></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js "></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/hux-blog.min.js "></script>
+
+    <!-- 搜索插件search start -->
+    
+        <div class="cb-search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px;
+      opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
+    <input type="text" class="form-control cb-search-content" id="cb-search-content" style="position: fixed; top: 60px" placeholder="文章标题  标签" >
+    <div style="position: fixed; top: 5px; right: 16px;">
+        <!-- <img src="/plugins/search/img/cb-close.png" width="100%" height="100%" id="cb-close-btn"/> -->
+        <a id="cb-close-btn" style="text-decoration:none;" href="javascript:">
+          <i class="iconfont icon-x icon-1x"  style="color:#FFFF"></i>
+        </a>
+    </div>
+</div>
+
+<!-- <div style="position: fixed; right: 16px; bottom: 20px;">
+    <img src="/plugins/search/img/cb-search.png"  id="cb-search-btn" width="100%" height="100%" title="双击ctrl试一下"/>
+</div> -->
+
+<link rel="stylesheet" href="/plugins/search/css/cb-search.css">
+<script src="/plugins/search/js/bootstrap3-typeahead.min.js"></script>
+<script src="/plugins/search/js/cb-search.js"></script>
+
+    
+    <!-- 搜索插件end -->
+    <script type="text/javascript" src="/js/toTop.js "></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Liberdass Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/date/">Date</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * $toggle/$collapse will break global delegation.
+     *
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <header class="intro-header" style="background-image: url('/img/post-bg-rwd.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading" id="tag-heading"  style="padding:55px 0;">
+                    <h1>About</h1>
+                    <span class="subheading">
+                      <a id="cb-search-btn" style="text-decoration:none;" href="javascript:">
+                        <i  class="iconfont icon-icon-chaxun icon-1x" style="color:#FFFF" title="双击ctrl试一下"></i>&nbsp;
+                      </a>Hey, this is Fe.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+        
+
+<!-- USE SIDEBAR -->
+    <!-- PostList Container -->
+    		<div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                postlist-container
+            ">
+    			<!-- by Fe 按钮-->
+<h3 name="en"  hidden><a class="label label-default" onclick="onLanChange('0')">中文 Chinese </a></h3>
+<h3 name="zh"><a class="label label-default" onclick="onLanChange('1')">英文 English </a></h3>
+<div class="zh post-container" name="zh">
+    <!--copied from markdown -->
+    <blockquote>
+      <p>冰冻三尺 非一日之寒
+      <br/>积土成山 非斯须之作</p>
+    </blockquote>
+    <p>Hey，我是<strong>Fe</strong>，一只JAVA程序猿，现在福州工作。</p>
+
+    <p>这是我的利用 <a href="https://pages.github.com/">GitHub Pages</a> 与 <a href="http://jekyll.com.cn/">Jekyll</a> 搭建的个人博客。我的GitHub  👉 <a href="http://github.com/FeDemo">Github·Fe。</a></p>
+
+    <p>爱生活,爱编程,爱JAVA,也爱BUG。</p>
+
+</div>
+
+<!-- English Version -->
+<div class="en post-container" name="en" hidden>
+    <blockquote>
+      <p>Yet another JAVA Developer.
+      <br>Yet another Life-long Student.</p>
+    </blockquote>
+    <p>Hi, I am <strong>Fe</strong>. An JAVA Program the ape and currently working in FuZhou</p>
+
+    <p>This is my personal blog, through making <a href="https://pages.github.com/">GitHub Pages</a> and <a href="http://jekyll.com.cn/">Jekyll</a>. My GitHub  👉 <a href="http://github.com/FeDemo">Github·Fe</a>.</p>
+
+    <p>Love life,Love programming,Love JAVA, Love BUG </p>
+
+</div>
+<!-- 小恐龙 -->
+ <div class="visible-md visible-lg">
+  <iframe src="/plugins/chrome-t-rex-game-master" width="100%" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+
+<!-- <div class="post-container"> -->
+
+<!-- <iframe src="/plugins/chrome-t-rex-game-master" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe> -->
+<!-- 仓鼠start -->
+<!-- <div class="visible-md visible-lg">
+<style>
+ul, menu, dir {
+display: block;
+list-style-type: disc;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+-webkit-padding-start: 40px;
+}
+</style>
+<object type="application/x-shockwave-flash"
+style="outline:none;"
+data="https://cdn.abowman.com/widgets/hamster/hamster.swf?"
+width="240" height="180"
+id="__wow_video_player__463292481"
+title="Adobe Flash Player">
+<param name="movie" value="https://cdn.abowman.com/widgets/hamster/hamster.swf?">
+<param name="AllowScriptAccess" value="always">
+<param name="wmode" value="opaque">
+</object>
+</div> -->
+<!-- 仓鼠end -->
+<!-- <h5>Talks</h5>
+<ul>
+  <li><a href="https://github.com" target="_blank">github</a></li>
+  <li><a href="http://jekyll.com.cn/" target="_blank">jekyll</a></li>
+  <li><a href="https://pages.github.com/" target="_blank">GitHub Pages</a></li>
+  <li><a href="https://fedemo.github.io/" target="_blank">Fe</a></li>
+  <li><a href="https://tongji.baidu.com/web/24776843/overview/index?siteId=11534941" target="_blank">百度统计</a></li>
+  <li><a href="https://console.bce.baidu.com/bcd/#/bcd/manage/list" target="_blank">域名管理</a></li>
 </ul>
-{% endif %}
+</div>   -->
+<!--Gitalk评论start  by Fe-->
+<!-- 引入Gitalk评论插件  -->
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+<div id="gitalk-container"></div>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+    clientID: 'd51eae5279ca76d225d4',
+    clientSecret: '3cf763578a873838467504c6d9ac5afee589e792',
+    repo: 'img_gitalk',
+    owner: 'Liberdass',
+    admin: ['Liberdass'],
+    id: window.location.pathname,
+    });
+    gitalk.render('gitalk-container');
+</script>
+
+<!-- Gitalk end -->
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    // handle select change
+    function onLanChange(index){
+        if(index == 1){
+            $("[name='zh']").hide();
+            $("[name='en']").show();
+        }else{
+            $("[name='en']").hide()
+            $("[name='zh']").show();
+        }
+    }
+</script>
+
+    		</div>
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+
+                <!-- Featured Tags -->
+                
+
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                            
+                        
+                    </div>
+                </section>
+                
+                <!-- Date(日期归档)  start-->
+                <!-- author: Fe -->
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+
+                    <h5><a href="/date/">My Date</a></h5>
+
+                    <div class="tags">
+
+                      
+                      	
+                      	
+                      		
+
+                          <a href="/date/#a201711" rel="5">2017年11月</a>
+
+                      	
+                      
+
+                        <!-- 
+                            
+                         -->
+
+                    </div>
+                </section>
+                <!-- Date end-->
+                <!-- Short About -->
+                <section class="visible-md visible-lg">
+                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
+                    <div class="short-about">
+                        
+                            <a href="/about">
+                                <img src="/img/avatar_p11179162.jpg" width="100%" height="100%"/>
+                            </a>
+                        
+                        
+                            <p>Goals determine what you going to be!</p>
+                        
+                        <!-- SNS Link -->
+                        <ul class="list-inline">
+                            
+                              <!-- add coding  by Fe -->
+                            
+                            
+                            <li>
+                                <a target="_blank" style="text-decoration:none;" href="https://www.zhihu.com/people/ali">
+                                      <i class="iconfont icon-zhihu icon-1x"></i>
+                                </a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            <li>
+                                <a style="text-decoration:none;" target="_blank" href="https://github.com/Liberdass">
+                                      <i class="iconfont icon-GitHub icon-1x"></i>
+                                </a>
+                            </li>
+                            
+
+                        </ul>
+                        
+                            <p> <i class="iconfont icon-email"></i> fe@fedemo.top</p>
+                        
+                    </div>
+                </section>
+                <!-- Friends Blog -->
+                
+    		</div>
+        
+	</div>
+</div>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                  
+                    <!-- add coding  by Fe -->
+                  
+                  
+                  <li>
+                      <a target="_blank" style="text-decoration:none;" href="https://www.zhihu.com/people/ali">
+                            <i class="iconfont icon-zhihu icon-2x"></i>
+                      </a>
+                  </li>
+                  
+                  
+                  
+                  
+                  
+                  <li>
+                      <a style="text-decoration:none;" target="_blank" href="https://github.com/Liberdass">
+                            <i class="iconfont icon-GitHub icon-2x"></i>
+                      </a>
+                  </li>
+                  
+                </ul>
+
+                
+                <p class="copyright text-muted">
+                    Copyright &copy; Liberdass Blog 2018
+                    <br>
+                    Hosted by <a target="_blank" href="https://pages.coding.me" >Coding Pages</a> |
+                    Theme on <a target="_blank" href="https://github.com/Liberdass/darknight.github.io.git/">GitHub</a>
+                </p>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Service Worker -->
+
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    // async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    //     var $nav = document.querySelector("nav");
+    //     if($nav) FastClick.attach($nav);
+    // })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+<!-- Side Catalog -->
+
+<!-- 百度推送链接插件 start -->
+
+<!-- end -->
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/Lee.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
